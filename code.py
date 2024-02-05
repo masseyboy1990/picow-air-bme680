@@ -38,7 +38,7 @@ from digitalio import DigitalInOut, Direction, Pull
 import adafruit_minimqtt.adafruit_minimqtt as MQTT
 import dphacks_usaqi as USAQI
 
-import adafruit_ahtx0
+import adafruit_bme680
 from adafruit_httpserver import (
     Server,
     Request,
@@ -114,7 +114,7 @@ except RuntimeError:
 
 ## Add Qwiic/QT/I2C Sensors below
 if i2c:
-    th = adafruit_ahtx0.AHTx0(i2c) # Comment this line if not using AHT20
+    th = adafruit_bme680.Adafruit_BME680_I2C(i2c) # Comment this line if not using AHT20
 
 avgDict = {}
 
