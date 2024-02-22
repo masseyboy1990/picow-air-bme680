@@ -158,7 +158,7 @@ def read_pms25():
 
 
     return pmvalues
-
+th.seaLevelhPa = 1015.9
 def read_temp_hum():
     """
     Read temp and humidity from environment sensor
@@ -171,6 +171,9 @@ def read_temp_hum():
             values['temperature'] = round(th.temperature, 2)
         
         values['humidity'] = round(th.relative_humidity, 2)
+        values['gas'] = round(th.gas, 2)
+        values['pressure'] = round(th.pressure, 2)
+        values['altitude'] = round(th.altitude, 2)
     except Exception:
         print("No temp or humidity sensor")
 
@@ -340,7 +343,7 @@ def pmdata_client(request: Request):
     """
     Serve Temp and Humidity data as JSON
     """
-    data = read_temp_hum()
+    data = read_temp_hum_voc_hpa_alt()
     return JSONResponse(request, data)
     
 @server.route("/ledon")

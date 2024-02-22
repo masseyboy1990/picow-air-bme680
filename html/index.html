@@ -107,6 +107,18 @@
                         <th>Humidity</th>
                         <td id="hum">-</td>
                     </tr>
+                    <tr>
+                        <th>Gas</th>
+                        <td id="voc">-</td>
+                    </tr>
+                    <tr>
+                        <th>Pressure</th>
+                        <td id="hpa">-</td>
+                    </tr>
+                    <tr>
+                        <th>Altitude</th>
+                        <td id="alt">-</td>
+                    </tr>
                 </tbody>
             </table>
             <!-- <p>Control the onboard LEDs</p>
@@ -121,6 +133,9 @@
                 const jsonData = await response.json();
                 document.getElementById('temp').innerHTML = jsonData['temperature']
                 document.getElementById('hum').innerHTML = jsonData['humidity']
+                document.getElementById('voc').innerHTML = jsonData['gas']
+                document.getElementById('hpa').innerHTML = jsonData['pressure']
+                document.getElementById('alt').innerHTML = jsonData['altitude']
                 // Check if able to read PM data
                 if (typeof jsonData['pm10 env'] !== 'undefined'){
                     document.getElementById('PM10env').innerHTML = jsonData['pm10 env']
